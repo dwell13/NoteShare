@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>NoteShare</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<link href="assets/css/font-awesome.css" rel="stylesheet">
+		
+	<style>
+	.navbar-brand{
+	font-size:45px;
+	}
+	.container-fluid{
+	margin:18px 5px 5px 5px;
+	}
+	#home-background
+	{
+	width:100%;
+	height:650px;
+	}
+	
+	#home
+	{
+	position:relative;
+	}
+	
+	#home .container{
+	position:absolute;
+	top:25%;
+	width:100%;
+	}
+	#home h1 {
+	font-size:150px;
+	color:blue;
+	letter-spacing:55px;
+	}
+	
+	#home hr{
+	width:50%;
+	border:3px solid gray;
+	}
+	
+	#home h2 {
+	color:blue;
+	letter-spacing:3px;
+	font-size:30px;
+	}
+	
+	.navbar-collapse{
+	
+	
+	}
+	.navbar-nav .btn {
+	border-radius:25px 100px 25px 100px;
+	font-size:20px;
+	}
+	.navbar-nav a{
+	color:white;
+	}
+	
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="text-right">
+			<a class="navbar-brand"  href="#home" > NoteShare </a>
+			<span class="icon"><i class="fa fa-search"></i></span>
+			<input type="search" id="search" placeholder="Search..." />
+            <a href="#" class="btn btn-default my-rounded-button">Search</a>
+            <a href="#" class="btn btn-primary my-rounded-button">Upload</a>
+        </div>
+	</div>
+	</nav>
+	<section id="home">
+		<img id="home-background" src="assets/image/1.jpg">
+		<div class="container">
+			<div class="row">
+				<h1 class="text-center">NoteShare</h1>
+				<hr><br><br>
+				<h2 class="text-center">Dwell is the educational websites.
+					Which introduces and reteaches skills use throughout their lives.</h2>
+			</div>
+		</div>
+		
+		<div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav btn ">
+			<li class="btn btn-primary"><a href="#">Latest</a></li>
+			<li class="btn btn-success"><a href="#">Arts </a> </li>
+			<li class="btn btn-info"><a href="#">Engineering</a></li>
+			<li class="btn btn-warning"><a href="#">Science</a></li>
+			<li class="btn btn-danger"><a href="#">Mathematics</a></li>
+		  </ul>
+		</div>
+	</section>
+
+</body>
+</html>
