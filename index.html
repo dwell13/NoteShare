@@ -60,9 +60,31 @@
 	.navbar-nav a{
 	color:white;
 	}
-	li:hover{
-	font-size:25px;
+	
+	div span{
+	font-size:20px;
 	color:blue;
+	padding:10px;
+	}
+	div span:hover{
+	color:red;
+	font-size:30px;
+	} 
+	
+	#description{
+	height:300px;
+	width:1100px;
+	}
+	
+	.size-color{
+	color:blue;
+	font-size:45px;
+	}
+	
+  .submit-btn{
+	padding:30px;
+	font-size:50px;
+	color:red;
 	}
 	
 	</style>
@@ -72,10 +94,9 @@
 	<div class="container-fluid">
 		<div class="text-right">
 			<a class="navbar-brand"  href="#home" > NoteShare </a>
-			<span class="icon"><i class="fa fa-search"></i></span>
 			<input type="search" id="search" placeholder="Search..." />
             <a href="#" class="btn btn-default my-rounded-button">Search</a>
-            <a href="#" class="btn btn-primary my-rounded-button">Upload</a>
+            <a href="#form" class="btn btn-primary my-rounded-button">Upload</a>
         </div>
 	</div>
 	</nav>
@@ -112,16 +133,24 @@
 						<u><h1>Science</h1></u>
 						<img src="assets/image/science.jpg" class="img-responsive">
 						
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
+						
 					</div>
 					<div class="col-md-4 text-center">
 						<u><h1>Math</h1></u>
 						<img src="assets/image/math.jpg" class="img-responsive">
-						
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
 					</div>
 					<div class="col-md-4 text-center">
 						<u><h1>Arts</h1></u>
 						<img src="assets/image/art.jpg" class="img-responsive">
-						
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
 					</div>
 				</div>
 			</div>
@@ -140,23 +169,75 @@
 					<div class="col-md-4 text-center">
 						<u><h1>Science</h1></u>
 						<img src="assets/image/science1.jpg" class="img-responsive">
-						
+						<a href="#"><span class="icon "><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
 					</div>
 					<div class="col-md-4 text-center">
 						<u><h1>Math</h1></u>
 						<img src="assets/image/math1.jpg" class="img-responsive">
-						
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
 					</div>
 					<div class="col-md-4 text-center">
 						<u><h1>Arts</h1></u>
-						<img src="assets/image/art1.jpg" class="img-responsive">
-						
+						<img src="assets/image/arts.jpg" class="img-responsive">
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
+						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
 					</div>
 				</div>
 			</div>
 			</div>	
 		</div>
 		</section>
+		<hr>
+		
+		<section id="form">
+		<div class="container">
+			<div class="row">
+		<form>
+		<br>
+		<u><h1 class="text-center size-color">Form</h1><u>
+		<br><br>
+			<div class="col-md-6 text-center">
+			<select name=cotegory >
+			<option>Select Cotegory</option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			</select>
+			<br><br><br>
+			<select name=cotegory >
+			<option>Select your Documentation Type</option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			</select>
+			<br><br><br>
+			<input type="text" placeholder="Enter The Name Of A Note">
+			<br><br><br>
+			
+			</div>
+			<div class="col-md-6 text-center">
+			<li class="btn btn-default"><a href="#">Choose File</a></li>
+			</div>
+			
+			</div>
+			<textarea id="description" placeholder="Add an optional extended description…" >
+			</textarea>
+			<div class="submit-btn text-right">
+			<li class="btn btn-default"><a href="#">Submit</a></li>
+			<li class="btn btn-default"><a href="#">Clear</a></li>
+			</div>
+		</div>
+		</section>
+	
 
 </body>
 </html>
