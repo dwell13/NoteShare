@@ -8,6 +8,7 @@
 		<link href="assets/css/bootstrap.css" rel="stylesheet">
 		<link href="assets/css/font-awesome.css" rel="stylesheet">
 		
+		
 	<style>
 	.navbar-brand{
 	font-size:45px;
@@ -55,8 +56,9 @@
 	}
 	
 	.navbar-nav .btn {
-	border-radius:25px 100px 25px 100px;
-	font-size:20px;
+	border-radius:0px 100px 0px 100px;
+	font-size:22px;
+	margin-bottom: -18px;
 	}
 	
 	.navbar-nav a{
@@ -88,20 +90,30 @@
    .submit-btn{
 	padding:30px;
 	}
-			
-	@media (max-width:500px){
+	
+	.float-right{
+	float:right;
+	}
+	
+	#question img{
+	border:3px solid black;
+	margin:15px;
+	}
+	
+	@media(max-width:500px;){
         #home h1{
-            font-size:150px;
-			background:red;
-          }
-		
+            font-size:50px;
+			color:red;
+			}
+				
          #home h2{
             font-size:20px;
 			color:red;
 		  }
-		 .navbar-brand{
-		 color:red;
-		 }
+		 #home-background{
+			background:pink;
+			}
+		 
 		 
     }
 	</style>
@@ -142,8 +154,8 @@
 	<section id="question">
 		<div class="container">
 			<div class="row">
-				<h1> Question Papers </h1> 
-				<li class="text-right"><a href="#" >see more</a></li>
+				<h1> Question Papers <span class="float-right"><a href="#" >see more</a></span> </h1> 
+				
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 text-center">
@@ -179,8 +191,8 @@
 		<section id="question">
 		<div class="container">
 			<div class="row">
-				<h1> Syudy Material </h1> 
-				<li class="text-right"><a href="#" >see more</a></li>
+				<h1> Syudy Material <span class="float-right"><a href="#" >see more</a></span> </h1> 
+				
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 text-center">
@@ -243,8 +255,7 @@
 			</div>
 			<div class="col-md-6 text-center">
 			<li class="btn btn-default"><a href="#">Choose File</a></li>
-			<br>
-			<br>
+			<br><br><br>
 			</div>
 			
 			</div>
@@ -259,6 +270,8 @@
 			</div>
 		</div>
 		</section>
+		
+	
 	
 
 </body>
