@@ -3,9 +3,7 @@
 <head>
 
 	<title>NoteShare</title>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
 		
 		<link href="assets/css/bootstrap.css" rel="stylesheet">
 		<link href="assets/css/font-awesome.css" rel="stylesheet">
@@ -14,9 +12,11 @@
 	.navbar-brand{
 	font-size:45px;
 	}
+	
 	.container-fluid{
 	margin:18px 5px 5px 5px;
 	}
+	
 	#home-background
 	{
 	width:100%;
@@ -33,10 +33,11 @@
 	top:25%;
 	width:100%;
 	}
+	
 	#home h1 {
 	font-size:150px;
 	color:blue;
-	letter-spacing:55px;
+	
 	}
 	
 	#home hr{
@@ -46,17 +47,18 @@
 	
 	#home h2 {
 	color:blue;
-	letter-spacing:3px;
 	font-size:30px;
 	}
 	
 	hr{
 	border:2px solid #eee;
 	}
+	
 	.navbar-nav .btn {
 	border-radius:25px 100px 25px 100px;
 	font-size:20px;
 	}
+	
 	.navbar-nav a{
 	color:white;
 	}
@@ -66,6 +68,7 @@
 	color:blue;
 	padding:10px;
 	}
+	
 	div span:hover{
 	color:red;
 	font-size:30px;
@@ -73,7 +76,8 @@
 	
 	#description{
 	height:300px;
-	width:1100px;
+	width:700px;
+	
 	}
 	
 	.size-color{
@@ -81,12 +85,25 @@
 	font-size:45px;
 	}
 	
-  .submit-btn{
+   .submit-btn{
 	padding:30px;
-	font-size:50px;
-	color:red;
 	}
-	
+			
+	@media (max-width:500px){
+        #home h1{
+            font-size:150px;
+			background:red;
+          }
+		
+         #home h2{
+            font-size:20px;
+			color:red;
+		  }
+		 .navbar-brand{
+		 color:red;
+		 }
+		 
+    }
 	</style>
 </head>
 <body>
@@ -168,14 +185,14 @@
 				<div class="row">
 					<div class="col-md-4 text-center">
 						<u><h1>Science</h1></u>
-						<img src="assets/image/science1.jpg" class="img-responsive">
+						<img src="assets/image/science11.jpg" class="img-responsive">
 						<a href="#"><span class="icon "><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
 						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
 						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
 					</div>
 					<div class="col-md-4 text-center">
 						<u><h1>Math</h1></u>
-						<img src="assets/image/math1.jpg" class="img-responsive">
+						<img src="assets/image/math11.jpg" class="img-responsive">
 						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
 						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
 						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
@@ -199,7 +216,7 @@
 			<div class="row">
 		<form>
 		<br>
-		<u><h1 class="text-center size-color">Form</h1><u>
+		<u><h1 class="text-center size-color">Form</h1></u>
 		<br><br>
 			<div class="col-md-6 text-center">
 			<select name=cotegory >
@@ -226,11 +243,16 @@
 			</div>
 			<div class="col-md-6 text-center">
 			<li class="btn btn-default"><a href="#">Choose File</a></li>
+			<br>
+			<br>
 			</div>
 			
 			</div>
-			<textarea id="description" placeholder="Add an optional extended description…" >
+			<div class="text-center">
+			<textarea id="description"  placeholder="Add an optional extended description…" >
 			</textarea>
+			</div>
+			
 			<div class="submit-btn text-right">
 			<li class="btn btn-default"><a href="#">Submit</a></li>
 			<li class="btn btn-default"><a href="#">Clear</a></li>
