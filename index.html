@@ -7,8 +7,7 @@
 		
 		<link href="assets/css/bootstrap.css" rel="stylesheet">
 		<link href="assets/css/font-awesome.css" rel="stylesheet">
-		
-		
+			
 	<style>
 	.navbar-brand{
 	font-size:45px;
@@ -23,7 +22,9 @@
 	width:100%;
 	height:650px;
 	}
-	
+	body{
+  overflow-x: hidden;
+}
 	#home
 	{
 	position:relative;
@@ -55,77 +56,144 @@
 	border:2px solid #eee;
 	}
 	
-	.navbar-nav .btn {
-	border-radius:0px 100px 0px 100px;
-	font-size:22px;
-	margin-bottom: -18px;
-	}
-	
 	.navbar-nav a{
 	color:white;
 	}
 	
-	div span{
-	font-size:20px;
-	color:blue;
-	padding:10px;
-	}
+	#uploadBtn{
+  padding: 6px 18px;
+  margin: 8px 10px;
+  color:#fff;
+  border-color: #fff;
+}
 	
-	div span:hover{
-	color:red;
-	font-size:30px;
-	} 
-	
-	#description{
-	height:300px;
-	width:700px;
-	
-	}
-	
-	.size-color{
-	color:blue;
-	font-size:45px;
-	}
-	
-   .submit-btn{
-	padding:30px;
-	}
-	
-	.float-right{
-	float:right;
-	}
-	
-	#question img{
-	border:3px solid black;
-	margin:15px;
-	}
-	
-	@media(max-width:500px;){
-        #home h1{
-            font-size:50px;
-			color:red;
-			}
-				
-         #home h2{
-            font-size:20px;
-			color:red;
-		  }
-		 #home-background{
-			background:pink;
-			}
-		 
-		 
+	#loader{
+  display:none;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  opacity: 0.5;
+  background: black;
+  z-index:1051;
+  font-size:50px;
+}
+
+
+.loading{
+  position: absolute;
+  top:50%;
+  left:50%;
+  z-index: 1060;
+  color:#fff;
+  font-size:50px;
+}
+navbar-default{
+background-color: #732d2d;
+}
+
+nav.notesNav {
+  background:#d24343;
+  border:#d24343;
+  border-radius:0px;
     }
+
+	.notesNav .navbar-nav li a
+{
+  color: white;
+}
+
+.notesNav .navbar-nav li a:active, .notesNav .navbar-nav li a:focus {
+  outline:0;
+}
+	
+	
 	</style>
 </head>
 <body>
+
+	<div id="loader">
+      <div class="loading">
+        Loading <i class="fa fa-spinner fa-spin fa-2x"></i>
+      </div>
+    </div>
+
+	<div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+	<div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Share your notes</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col-md-7">
+
+                    <div class="form-group">
+                      <label for="filename">File name</label>
+                      <input type="text" class="form-control" id="fileName">
+                    </div>
+                    <div class="form-group">
+                      <label for="description">Description:</label>
+                      <textarea class="form-control" id="description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="subject">Select Subject:</label>
+                      <select class="form-control" id="subject">
+						<option>Select Subject</option>
+                        <option value="arts">Arts</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="science">Science</option>
+                        <option value="mathematics">Mathematics</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="documentType">Select Document Type:</label>
+                      <select class="form-control" id="documentType">
+						<option>Select your Documentation Type</option>
+                        <option value="Study Material">Study Material</option>
+                        <option vlaue="Question Paper">Question Paper</option>
+                        <option value="Project Report">Project Report</option>
+                      </select>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-5">
+                  <label for="notesFile">Upload File</label>
+                  <input type="file" name="notesFile" id="notesFile">
+                </div>
+
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="submitBtn">Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 	<nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="text-right">
 			<a class="navbar-brand"  href="#home" > NoteShare </a>
-			<input type="search" id="search" placeholder="Search..." />
-            <a href="#" class="btn btn-default my-rounded-button">Search</a>
-            <a href="#form" class="btn btn-primary my-rounded-button">Upload</a>
+		
+			 <ul class="nav navbar-nav navbar-right">
+            <li><a class="btn btn-primary my-rounded-button" id="uploadBtn" data-toggle="modal" data-target="#myModal" >Upload</a></li>
+          </ul>
+
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+          </form>
+            
         </div>
 	</div>
 	</nav>
@@ -139,140 +207,92 @@
 					Which introduces and reteaches skills use throughout their lives.</h2>
 			</div>
 		</div>
-		
-		<div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav btn ">
-			<li class="btn btn-primary"><a href="#">Latest</a></li>
-			<li class="btn btn-success"><a href="#">Arts </a> </li>
-			<li class="btn btn-info"><a href="#">Engineering</a></li>
-			<li class="btn btn-warning"><a href="#">Science</a></li>
-			<li class="btn btn-danger"><a href="#">Mathematics</a></li>
-		  </ul>
-		</div>
 	</section>
-	<hr>
-	<section id="question">
-		<div class="container">
-			<div class="row">
-				<h1> Question Papers <span class="float-right"><a href="#" >see more</a></span> </h1> 
-				
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 text-center">
-						<u><h1>Science</h1></u>
-						<img src="assets/image/science.jpg" class="img-responsive">
-						
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
-						
-					</div>
-					<div class="col-md-4 text-center">
-						<u><h1>Math</h1></u>
-						<img src="assets/image/math.jpg" class="img-responsive">
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
-					</div>
-					<div class="col-md-4 text-center">
-						<u><h1>Arts</h1></u>
-						<img src="assets/image/art.jpg" class="img-responsive">
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
-					</div>
-				</div>
-			</div>
-			</div>	
-		</div>
-		</section>
-		<hr>
-		
-		<section id="question">
-		<div class="container">
-			<div class="row">
-				<h1> Syudy Material <span class="float-right"><a href="#" >see more</a></span> </h1> 
-				
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 text-center">
-						<u><h1>Science</h1></u>
-						<img src="assets/image/science11.jpg" class="img-responsive">
-						<a href="#"><span class="icon "><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
-					</div>
-					<div class="col-md-4 text-center">
-						<u><h1>Math</h1></u>
-						<img src="assets/image/math11.jpg" class="img-responsive">
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
-					</div>
-					<div class="col-md-4 text-center">
-						<u><h1>Arts</h1></u>
-						<img src="assets/image/arts.jpg" class="img-responsive">
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-share"></i></span></a>
-						<a href="#"><span class="icon"><i class="glyphicon glyphicon-save"></i></span></a>
-					</div>
-				</div>
-			</div>
-			</div>	
-		</div>
-		</section>
-		<hr>
-		
-		<section id="form">
-		<div class="container">
-			<div class="row">
-		<form>
-		<br>
-		<u><h1 class="text-center size-color">Form</h1></u>
-		<br><br>
-			<div class="col-md-6 text-center">
-			<select name=cotegory >
-			<option>Select Cotegory</option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			</select>
-			<br><br><br>
-			<select name=cotegory >
-			<option>Select your Documentation Type</option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			</select>
-			<br><br><br>
-			<input type="text" placeholder="Enter The Name Of A Note">
-			<br><br><br>
-			
-			</div>
-			<div class="col-md-6 text-center">
-			<li class="btn btn-default"><a href="#">Choose File</a></li>
-			<br><br><br>
-			</div>
-			
-			</div>
-			<div class="text-center">
-			<textarea id="description"  placeholder="Add an optional extended description…" >
-			</textarea>
-			</div>
-			
-			<div class="submit-btn text-right">
-			<li class="btn btn-default"><a href="#">Submit</a></li>
-			<li class="btn btn-default"><a href="#">Clear</a></li>
-			</div>
-		</div>
-		</section>
-		
 	
-	
+	 <section id="notesNavigation">
+      <nav class="navbar navbar-default notesNav">
+        <div class="container">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#" id="latest">Latest</a></li>
+              <li><a href="#" id="arts">Arts</a></li>
+              <li><a href="#" id="engineering">Engineering</a></li>
+              <li><a href="#" id="science">Science</a></li>
+              <li><a href="#" id="maths">Maths</a></li>
 
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+   </section>
+<hr>
+	 <section id="notes">
+      <div class="container">
+        <h1>Study Materials</h1>
+        <div>
+          <table class="table table-bordered table-striped" id="studyMaterials">
+            <thead>
+              <tr>
+                <th>S.NO</th>
+                <th>Notes Name</th>
+                <th>Description</th>
+                <th>Subject</th>
+                <th>Download</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+          </table>
+        </div>
+
+        <h1>Question Papers</h1>
+        <div>
+          <table class="table table-bordered table-striped" id="questionPapers">
+            <thead>
+              <tr>
+                <th>S.NO</th>
+                <th>Notes Name</th>
+                <th>Description</th>
+                <th>Subject</th>
+                <th>Download</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+          </table>
+        </div>
+
+        <h1>Project Reports</h1>
+        <div>
+          <table class="table table-bordered table-striped" id="projectReports">
+            <thead>
+              <tr>
+                <th>S.NO</th>
+                <th>Notes Name</th>
+                <th>Description</th>
+                <th>Subject</th>
+                <th>Download</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </section>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/scripts.js"></script>
 </body>
 </html>
